@@ -97,6 +97,26 @@
       opacity: 1;
       transition: opacity 1s ease;
     }
+    #orderModal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border: 2px solid #333;
+      z-index: 9999;
+      display: none;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    #orderModal h3 {
+      margin-top: 0;
+    }
+    #orderModal button {
+      margin-top: 20px;
+      background: #3a635d;
+    }
     footer {
       background: #111;
       color: #ccc;
@@ -104,10 +124,158 @@
       padding: 20px;
       font-size: 14px;
     }
+    @media (max-width: 768px) {
+      .product-block {
+        flex-direction: column;
+        text-align: center;
+      }
+      .product-img, .product-text {
+        flex: 1 1 100%;
+        padding: 10px;
+      }
+    }
+    .product-block:nth-child(2) {
+      flex-direction: row-reverse;
+    }
   </style>
 </head>
 <body>
-  <h1>傑克甜點小舖</h1>
-  <p>這是靜態網站部署測試頁面</p>
+  <header>
+    <div class="logo">傑克甜點小舖</div>
+    <nav>
+      <a href="#">首頁</a>
+      <a href="#products">商品介紹</a>
+      <a href="#form">訂購</a>
+    </nav>
+  </header>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url('https://static.wixstatic.com/media/ae61c7_d09f2c98a0be449fbc69dfbb53f40b4a~mv2.jpg');">
+        <div class="center-text">JACK DESSERT</div>
+      </div>
+      <div class="swiper-slide" style="background-image: url('https://static.wixstatic.com/media/ae61c7_e6d788f65e444531bdb28d3edbb41d69~mv2.jpg');">
+        <div class="center-text">JACK DESSERT</div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <section id="products" class="section">
+    <div class="product-block">
+      <div class="product-img">
+        <img src="https://static.wixstatic.com/media/ae61c7_d09f2c98a0be449fbc69dfbb53f40b4a~mv2.jpg" alt="生巧克力塔">
+      </div>
+      <div class="product-text">
+        <h2>生巧克力塔</h2>
+        <p>直徑約 18–20 cm，高度約 2–2.5 cm<br>酥香可可杏仁塔皮，包裹濃厚杏仁奶油餡與滑順生巧克力層，苦甜平衡，層次厚實。</p>
+        <p class="price-label">NT$800</p>
+      </div>
+    </div>
+    <div class="product-block">
+      <div class="product-img">
+        <img src="https://static.wixstatic.com/media/ae61c7_d09f2c98a0be449fbc69dfbb53f40b4a~mv2.jpg" alt="檸檬塔">
+      </div>
+      <div class="product-text">
+        <h2>檸檬塔（小塔8入）</h2>
+        <p>每顆約 10 × 4 × 2.5 cm<br>香酥塔皮盛裝酸香檸檬餡，內層中搭配香酸甜口的杏仁餡與外層金黃微炙蛋白霜，甜酸爽口，層次分明。 / 馬林糖（依餘料決定數量）</p>
+        <p class="price-label">NT$800</p>
+      </div>
+    </div>
+    <div class="product-block">
+      <div class="product-img">
+        <img src="https://static.wixstatic.com/media/ae61c7_d09f2c98a0be449fbc69dfbb53f40b4a~mv2.jpg" alt="莓果塔">
+      </div>
+      <div class="product-text">
+        <h2>莓果檸檬塔</h2>
+        <p>直徑約 18–20 cm，高度約 2–2.5 cm<br>可可杏仁塔皮襯底，內餡鋪滿杏仁奶油與新鮮莓果，覆盆子檸檬餡融合藍莓鏡面，酸甜交融。</p>
+        <p class="price-label">NT$800</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="form" class="form-section">
+    <h2 style="text-align:center;">訂購表單</h2>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSf7gtfJqnYGeOa3ApGM5VSAvnBG4vBQwzaZjS48xAUhtPZD6A/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+      <label>生巧克力塔數量</label>
+      <select name="entry.1502340992" required>
+        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      </select>
+      <label>檸檬塔數量</label>
+      <select name="entry.1512855753" required>
+        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      </select>
+      <label>莓果檸檬塔數量</label>
+      <select name="entry.1006097905" required>
+        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      </select>
+      <input name="entry.625224921" type="text" placeholder="姓名" required>
+      <input name="entry.776660897" type="text" placeholder="聯絡電話" required>
+      <input name="entry.141535063" type="text" placeholder="收件地址" required>
+      <textarea name="entry.1840374461" placeholder="備註..." rows="4"></textarea>
+      <button type="submit">確定送出</button>
+    </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <p id="submitStatus"></p>
+  </section>
+
+  <div id="orderModal">
+    <h3>訂單已成立！</h3>
+    <p id="orderDetails"></p>
+    <p>請加入 LINE 聯絡傑克確認內容與付款方式（ATM / LINE Pay）。</p>
+    <p><strong>轉帳帳號：</strong><span style="color:#d12c2c">812 台新銀行 2207-3023-5200-99</span></p>
+    <p><strong>LINE ID：</strong><span style="color:#3a63bd">@jackdessert</span></p>
+    <p>如需冷凍宅配，請額外加收 <span style="color:#d12c2c">NT$180</span> 運費。</p>
+    <button onclick="document.getElementById('orderModal').style.display='none'">關閉</button>
+  </div>
+
+  <footer>
+    傑克甜點小舖 ｜ 版權所有 &copy; 2025
+  </footer>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: { delay: 5000 },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    let submitted = false;
+    const form = document.querySelector("form");
+    const status = document.getElementById("submitStatus");
+    const iframe = document.querySelector("iframe[name='hidden_iframe']");
+
+    form.addEventListener("submit", () => {
+      submitted = true;
+      iframe.onload = () => {
+        if (submitted) {
+          status.textContent = "送出成功，我們將盡快與您聯繫！";
+          status.style.opacity = 1;
+          setTimeout(() => { status.style.opacity = 0; }, 3000);
+
+          const qty1 = parseInt(document.querySelector('[name="entry.1502340992"]').value) || 0;
+          const qty2 = parseInt(document.querySelector('[name="entry.1512855753"]').value) || 0;
+          const qty3 = parseInt(document.querySelector('[name="entry.1006097905"]').value) || 0;
+
+          const total = qty1 * 800 + qty2 * 800 + qty3 * 800;
+          const extra = confirm("是否需要冷凍宅配？(需加收 NT$180 運費)");
+          const final = extra ? total + 180 : total;
+
+          document.getElementById('orderDetails').innerHTML = `
+            生巧克力塔：${qty1} 份<br>
+            檸檬塔：${qty2} 份<br>
+            莓果塔：${qty3} 份<br>
+            <strong style="color:#d12c2c">總金額：NT$${final}</strong>
+          `;
+
+          document.getElementById('orderModal').style.display = 'block';
+          form.reset();
+        }
+      };
+    });
+  </script>
 </body>
 </html>
