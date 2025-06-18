@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>傑克甜點小舖</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Noto Sans TC", sans-serif; overflow-x: hidden; }
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .logo { font-size: 20px; font-weight: bold; color: white; }
+    nav a { color: white; text-decoration: none; font-weight: bold; margin: 0 10px; }
+    .swiper { width: 100%; height: 100vh; }
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+    .center-text {
+      position: relative;
+      z-index: 2;
+      border: 3px solid white;
+      padding: 30px 60px;
+      color: white;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .section { max-width: 1200px; margin: auto; padding: 60px 20px; }
+    .product-block {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    .product-img { flex: 1 1 45%; }
+    .product-text { flex: 1 1 50%; padding: 10px 30px; }
+    .product-img img { max-width: 100%; border-radius: 12px; }
+    .product-text h2 { margin: 15px 0 10px; }
+    .price-label {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #d12c2c;
+    }
+    .form-section {
+      width: 100vw;
+      padding: 40px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    input, select, textarea {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #3a635d;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #submitStatus {
+      text-align: center;
+      margin-top: 10px;
+      color: green;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>傑克甜點小舖</h1>
+  <p>這是靜態網站部署測試頁面</p>
+</body>
+</html>
